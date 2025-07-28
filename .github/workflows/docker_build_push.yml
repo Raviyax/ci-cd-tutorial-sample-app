@@ -85,3 +85,17 @@ jobs:
           tags: |
             "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:latest"
             "${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${{ github.ref_name }}"
+
+    # Build and push the Docker image
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Royal-Pos-Build
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: ~/prod/ase/build_1.sh
