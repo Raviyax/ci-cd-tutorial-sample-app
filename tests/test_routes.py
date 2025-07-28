@@ -1,7 +1,6 @@
 import os
 import sys
 import unittest
-
 import json
 
 # Add parent directory to path for import
@@ -49,6 +48,9 @@ class BasicTests(unittest.TestCase):
         body = json.loads(response.data)
         self.assertTrue('today_special' in body)
         self.assertEqual(body['today_special'], test_name)
+
+    def test_always_passes(self):
+        self.assertTrue(True)  # This will always pass
 
 if __name__ == "__main__":
     unittest.main()
