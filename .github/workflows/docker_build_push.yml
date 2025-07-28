@@ -100,4 +100,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: ~/prod/ase/build_1.sh
+          script: ~/ase/build_1.sh
